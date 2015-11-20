@@ -47,13 +47,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\krzychu\Documents\Visual Studio 2013\Projects\PJPII_gravity_project\PJPII_gravity_project\PJPII_gravity_project\glut\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\krzychu\Documents\Visual Studio 2013\Projects\PJPII_gravity_project\PJPII_gravity_project\PJPII_gravity_project\FreeImage\Dist\x32;C:\Users\krzychu\Documents\Visual Studio 2013\Projects\PJPII_gravity_project\PJPII_gravity_project\PJPII_gravity_project\glut\glut;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glut32.lib;odbc32.lib;odbccp32.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -72,6 +73,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="close.c" />
+    <ClCompile Include="Display.c" />
     <ClCompile Include="Source.c" />
   </ItemGroup>
   <ItemGroup>
