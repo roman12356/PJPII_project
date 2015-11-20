@@ -1,7 +1,13 @@
 #ifndef HEADER_H
 #define HEADER_H
 
-#include<stdio.h>
-#include<stdlib.h>
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <math.h>
+#include <stdio.h>
+#include <SDL.h>
+#include <SDL_opengl.h>
+
+
 
 #endif
