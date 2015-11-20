@@ -75,9 +75,14 @@
   <ItemGroup>
     <ClCompile Include="close.c" />
     <ClCompile Include="Display.c" />
+    <ClCompile Include="globals.c" />
+    <ClCompile Include="init.c" />
+    <ClCompile Include="loadMedia.c" />
     <ClCompile Include="Source.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="functions.h" />
+    <ClInclude Include="globals.h" />
     <ClInclude Include="Header.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,7 +1,9 @@
-#include "Header.h"
+#include "functions.h"
+#include "globals.h"
 
 void Display()
 {
+
 
 	SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
 
