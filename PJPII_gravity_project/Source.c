@@ -2,7 +2,6 @@
 
 
 
-
 int main(int argc, char * argv[])
 {
 
@@ -13,13 +12,21 @@ int main(int argc, char * argv[])
 	}
 	
 
-	if (!loadMedia("bmp/interface1.bmp"))
+	if (!loadMedia())
 	{
 			printf("Failed to load media!\n");
 
 	}
 
-	Display();
+	//While app is running
+	while (!quit)
+	{
+			
+		Events();
+
+		DisplayFunc();
+
+	}
 
 	close();
 

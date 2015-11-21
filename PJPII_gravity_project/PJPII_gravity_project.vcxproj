@@ -74,7 +74,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="close.c" />
-    <ClCompile Include="Display.c" />
+    <ClCompile Include="DisplayFunc.c" />
+    <ClCompile Include="DisplayMain.c" />
+    <ClCompile Include="DisplayWater.c" />
+    <ClCompile Include="Events.c" />
     <ClCompile Include="globals.c" />
     <ClCompile Include="init.c" />
     <ClCompile Include="loadMedia.c" />

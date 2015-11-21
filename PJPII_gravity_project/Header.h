@@ -3,18 +3,16 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
-#include <stdio.h>
-#include <SDL.h>
+/*#include <stdio.h>
 #include <stdbool.h>
+
+#include <SDL.h>
+#include <SDL_events.h>*/
+
 #include "functions.h"
 #include "globals.h"
 #pragma comment(lib, "opengl32.lib")
 
-
-
-
-
-bool init();
 
 
 #endif

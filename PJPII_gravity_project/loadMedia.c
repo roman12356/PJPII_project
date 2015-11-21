@@ -1,18 +1,28 @@
 #include "globals.h"
 #include "functions.h"
 
-bool loadMedia(char * filename)
+bool loadMedia()
 {
 
 	bool success = true;
 
 
-	gHelloWorld = SDL_LoadBMP(filename);
-	if (gHelloWorld == NULL)
+	InterfaceSurface[I_MAIN] = loadSurface("bmp/interface1.bmp");
+	if (InterfaceSurface[I_MAIN] == NULL)
 	{
-		printf("Unable to load image %s! SDL Error: %s\n", "02_getting_an_image_on_the_screen/hello_world.bmp", SDL_GetError());
+		printf("Unable to load image %s! SDL Error: %s\n", "bmp/interface1.bmp", SDL_GetError());
 		success = false;
 	}
+
+	InterfaceSurface[I_WATER] = loadSurface("bmp/interface2.bmp");
+	if (InterfaceSurface[I_WATER] == NULL)
+	{
+		printf("Unable to load image %s! SDL Error: %s\n", "bmp/interface2.bmp", SDL_GetError());
+		success = false;
+	}
+
+	
+
 
 	return success;
 }
