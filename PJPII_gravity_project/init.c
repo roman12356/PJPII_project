@@ -83,7 +83,7 @@ bool init()
 
 			glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
-			glOrtho(-2.0 * SCREEN_WIDTH / SCREEN_HEIGHT, 2.0 * SCREEN_WIDTH / SCREEN_HEIGHT, -2.0, 2.0, -2.0, 2.0);
+			glOrtho(-400.0, 400, -300.0, 300.0, -2.0, 2.0);
 		}
 
 

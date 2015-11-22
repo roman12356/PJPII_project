@@ -1,11 +1,10 @@
 #include "globals.h"
 
 
-
+GLuint count = 0;
 
 SDL_Window* window = NULL;
 SDL_Surface * gScreenSurface = NULL;
-SDL_Surface * InterfaceSurface[I_TOTAL];
 SDL_Surface * gCurrentSurface;
 SDL_Surface * gDefaultSurface;
 
@@ -14,6 +13,7 @@ SDL_GLContext gContext;
 
 
 GLuint texture;
+GLuint  InterfaceSurface[I_TOTAL];
 
 SDL_Surface *loadSurface(char *filename)
 {

@@ -10,11 +10,13 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+extern GLuint count;
+
 extern SDL_Window  * window;
 extern SDL_Surface * gScreenSurface;
 extern SDL_Surface * gCurrentSurface;
 extern SDL_Surface * gDefaultSurface;
-extern SDL_Surface * InterfaceSurface[];
+extern GLuint  InterfaceSurface[];
 
 extern SDL_GLContext gContext;
 

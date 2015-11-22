@@ -4,9 +4,10 @@ void close()
 {
 	int i;
 
+	glDeleteTextures(I_TOTAL, InterfaceSurface);
+
 	for (i = 0; i < I_TOTAL; i++)
 	{
-		SDL_FreeSurface(InterfaceSurface[i]);
 		InterfaceSurface[i] = NULL;
 	}
 
