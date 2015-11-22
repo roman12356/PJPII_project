@@ -42,6 +42,12 @@
     <ClCompile Include="DisplayWater.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LoadGLTextures.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InvertImage.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">

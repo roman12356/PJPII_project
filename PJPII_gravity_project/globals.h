@@ -3,14 +3,22 @@
 
 #include <SDL.h>
 #include <SDL_events.h>
+#include <gl/glew.h>
+#include <SDL_opengl.h>
+//#include <gl/GL.h>
+#include <gl/GLU.h>
 #include <stdio.h>
 #include <stdbool.h>
 
-extern SDL_Window* window;
-extern SDL_Surface* gScreenSurface;
+extern SDL_Window  * window;
+extern SDL_Surface * gScreenSurface;
 extern SDL_Surface * gCurrentSurface;
 extern SDL_Surface * gDefaultSurface;
 extern SDL_Surface * InterfaceSurface[];
+
+extern SDL_GLContext gContext;
+
+extern GLuint texture;
 
 extern SDL_Surface *loadSurface(char *filename);
 

@@ -10,6 +10,10 @@ int main(int argc, char * argv[])
 	{
 		printf("Failed to initialize!\n");
 	}
+
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 	
 
 	if (!loadMedia())
@@ -22,7 +26,8 @@ int main(int argc, char * argv[])
 	while (!quit)
 	{
 			
-		Events();
+		//Events();
+
 
 		DisplayFunc();
 

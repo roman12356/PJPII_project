@@ -6,6 +6,12 @@ bool loadMedia()
 
 	bool success = true;
 
+	if (!(LoadGLTextures(&texture, "bmp/Happy_face.bmp")))
+	{
+		printf("SDL ERROR: %s\n", SDL_GetError());
+	}
+
+
 
 	InterfaceSurface[I_MAIN] = loadSurface("bmp/interface1.bmp");
 	if (InterfaceSurface[I_MAIN] == NULL)

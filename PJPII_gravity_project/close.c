@@ -1,6 +1,4 @@
 #include "Header.h"
-#include "functions.h"
-#include "globals.h"
 
 void close()
 {

@@ -54,7 +54,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;glu32.lib;opengl32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -80,6 +80,8 @@
     <ClCompile Include="Events.c" />
     <ClCompile Include="globals.c" />
     <ClCompile Include="init.c" />
+    <ClCompile Include="InvertImage.c" />
+    <ClCompile Include="LoadGLTextures.c" />
     <ClCompile Include="loadMedia.c" />
     <ClCompile Include="Source.c" />
   </ItemGroup>

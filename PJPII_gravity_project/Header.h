@@ -11,7 +11,6 @@
 
 #include "functions.h"
 #include "globals.h"
-#pragma comment(lib, "opengl32.lib")
 
 
 

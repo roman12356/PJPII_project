@@ -1,5 +1,4 @@
-#include "globals.h"
-#include "functions.h"
+#include "Header.h"
 
 void DisplayFunc()
 {

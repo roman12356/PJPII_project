@@ -9,6 +9,12 @@ SDL_Surface * InterfaceSurface[I_TOTAL];
 SDL_Surface * gCurrentSurface;
 SDL_Surface * gDefaultSurface;
 
+//OpenGL context
+SDL_GLContext gContext;
+
+
+GLuint texture;
+
 SDL_Surface *loadSurface(char *filename)
 {
 		SDL_Surface *optimized = NULL;
