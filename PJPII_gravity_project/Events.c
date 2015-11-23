@@ -19,40 +19,6 @@ void Events()
 				quit = true;
 			}
 
-			else
-
-			if (InterfaceType == I_MAIN)
-			{
-				switch (ev.key.keysym.sym)
-				{
-
-				case SDLK_RIGHT:
-					InterfaceType = I_WATER;
-					break;
-
-				default:
-					break;
-
-				}
-			}
-
-			else
-
-			if (InterfaceType == I_WATER)
-			{
-				switch (ev.key.keysym.sym)
-				{
-
-				case SDLK_LEFT:
-					InterfaceType = I_MAIN;
-					break;
-
-				default:
-					break;
-
-				}
-			}
-
 
 
 		}

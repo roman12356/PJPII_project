@@ -4,7 +4,7 @@
 
 bool invert_image(SDL_Surface* image)
 {
-
+	
 	if (image == NULL)
 	{
 		printf("Sorry, cant invert image, SDL ERROR: %s\n", SDL_GetError());

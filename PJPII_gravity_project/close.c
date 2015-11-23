@@ -6,10 +6,10 @@ void close()
 
 	glDeleteTextures(I_TOTAL, InterfaceSurface);
 
-	for (i = 0; i < I_TOTAL; i++)
+/*	for (i = 0; i < I_TOTAL; i++)
 	{
 		InterfaceSurface[i] = NULL;
-	}
+	}*/
 
 
 

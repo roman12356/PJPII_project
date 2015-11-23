@@ -27,7 +27,7 @@ bool init()
 		glShadeModel(GL_SMOOTH);
 
 		/* Set the background red */
-		glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+		//glClearColor(136.0f / 255.0f, 0.0f, 21.0f / 255.0f, 1.0f);
 
 		/* Depth buffer setup */
 		glClearDepth(1.0f);
@@ -66,6 +66,15 @@ bool init()
 					printf("Error initializing GLEW! %s\n", glewGetErrorString(glewError));
 				}
 
+				//Initialize PNG loading
+				int imgFlags = IMG_INIT_PNG;
+				if (!(IMG_Init(imgFlags) & imgFlags))
+				{
+					printf("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
+					success = false;
+				}
+				else
+
 				//use Vsync
 				if (SDL_GL_SetSwapInterval(1) < 0)
 				{
@@ -83,7 +92,7 @@ bool init()
 
 			glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
-			glOrtho(-400.0, 400, -300.0, 300.0, -2.0, 2.0);
+			glOrtho(0, SCREEN_WIDTH, 0, SCREEN_HEIGHT, -2.0, 2.0);
 		}
 
 

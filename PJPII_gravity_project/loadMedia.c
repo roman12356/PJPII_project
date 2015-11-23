@@ -20,6 +20,30 @@ bool loadMedia()
 		success = false;
 	}
 
+	if (!(LoadGLTextures(&InterfaceSurface[I_THROW], "bmp/interface3.bmp")))
+	{
+		printf("SDL ERROR: %s\n", SDL_GetError());
+		success = false;
+	}
+
+
+	if (!(LoadGLTexturesPNG(&AdditionalTextures[back], "png/next.png")))
+	{
+		printf("SDL ERROR: %s\n", SDL_GetError());
+		success = false;
+	}
+
+	if (!(LoadGLTexturesPNG(&AdditionalTextures[giggles], "png/giggles.png")))
+	{
+		printf("SDL ERROR: %s\n", SDL_GetError());
+		success = false;
+	}
+
+	if (!(LoadGLTexturesPNG(&AdditionalTextures[water], "png/glass.png")))
+	{
+		printf("SDL ERROR: %s\n", SDL_GetError());
+		success = false;
+	}
 	
 
 

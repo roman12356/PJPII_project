@@ -5,6 +5,8 @@
 int main(int argc, char * argv[])
 {
 
+	
+
 
 	if (!init())
 	{
@@ -26,7 +28,7 @@ int main(int argc, char * argv[])
 	while (!quit)
 	{
 			
-		//Events();
+		Events();
 
 
 		DisplayFunc();

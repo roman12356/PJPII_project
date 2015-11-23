@@ -9,8 +9,12 @@ void DisplayMain();
 
 void DisplayWater();
 
+void DisplayThrow();
+
 
 void Events();
+
+void MouseEvents();
 
 void close();
 
@@ -21,6 +25,8 @@ bool init();
 bool loadMedia();
 
 bool LoadGLTextures(GLuint *texture, char * filename);
+
+bool LoadGLTexturesPNG(GLuint *texture, char * filename);
 
 bool invert_image(SDL_Surface* image);
 

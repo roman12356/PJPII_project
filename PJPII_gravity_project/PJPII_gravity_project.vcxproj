@@ -42,6 +42,10 @@
     <IncludePath>C:\Users\krzychu\Documents\Visual Studio 2013\Projects\PJPII_gravity_project\PJPII_gravity_project\PJPII_gravity_project\SDL2\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\krzychu\Documents\Visual Studio 2013\Projects\PJPII_gravity_project\PJPII_gravity_project\PJPII_gravity_project\SDL2\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Users\krzychu\Documents\Visual Studio 2013\Projects\PJPII_gravity_project\PJPII_gravity_project\PJPII_gravity_project\SDL2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\krzychu\Documents\Visual Studio 2013\Projects\PJPII_gravity_project\PJPII_gravity_project\PJPII_gravity_project\SDL2\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -49,13 +53,14 @@
       <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32.lib;glu32.lib;opengl32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;glu32.lib;opengl32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDl2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -65,24 +70,30 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>glew32.lib;glu32.lib;opengl32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="close.c" />
     <ClCompile Include="DisplayFunc.c" />
     <ClCompile Include="DisplayMain.c" />
+    <ClCompile Include="DisplayThrow.c" />
     <ClCompile Include="DisplayWater.c" />
     <ClCompile Include="Events.c" />
     <ClCompile Include="globals.c" />
     <ClCompile Include="init.c" />
     <ClCompile Include="InvertImage.c" />
     <ClCompile Include="LoadGLTextures.c" />
+    <ClCompile Include="LoadGLTexturesPNG.c" />
     <ClCompile Include="loadMedia.c" />
+    <ClCompile Include="MouseEvents.c" />
     <ClCompile Include="Source.c" />
   </ItemGroup>
   <ItemGroup>

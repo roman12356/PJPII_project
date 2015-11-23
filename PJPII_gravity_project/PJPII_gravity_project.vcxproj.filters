@@ -48,6 +48,15 @@
     <ClCompile Include="InvertImage.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MouseEvents.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadGLTexturesPNG.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayThrow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">
