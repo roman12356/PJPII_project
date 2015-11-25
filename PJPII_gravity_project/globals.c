@@ -1,7 +1,7 @@
 #include "globals.h"
 
 
-GLuint count = 0;
+GLuint i;
 
 SDL_Window* window = NULL;
 SDL_Surface * gScreenSurface = NULL;
@@ -48,6 +48,12 @@ SDL_Surface *loadSurface(char *filename)
 
 int SCREEN_WIDTH = 800;
 int SCREEN_HEIGHT = 600;
+
+double Runge[K_TOTAL];
+
+float height1;
+float height2;
+float angle;
 	
 
 bool quit = false;
@@ -59,3 +65,4 @@ Button_S Button_Main1 = { 23, 160, 533, 70 };
 Button_S Button_Main2 = { 23, 290, 289, 30 };
 Button_S Button_Main3 = { 23, 413, 515, 30 };
 Button_S Button_Back = { 100, 400, 100, 100 };
+Button_S Button_Next = { 600, 400, 100, 100 };

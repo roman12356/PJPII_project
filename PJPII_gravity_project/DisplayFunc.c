@@ -17,6 +17,10 @@ void DisplayFunc()
 		DisplayThrow();
 			break;
 
+	case I_ANIM_WATER:
+		DisplayAnimWater();
+		break;
+
 	default:
 		printf("Nothing yet\n");
 		InterfaceType = I_MAIN;

@@ -11,20 +11,17 @@ void MouseEvents()
 		switch (InterfaceType)
 		{
 			case I_MAIN:
-				if (mousex > Button_Main1.x && mousex < Button_Main1.x + Button_Main1.width
-					&& mousey > Button_Main1.y && mousey < Button_Main1.y + Button_Main1.height)
+				if (CheckButton(&Button_Main1))
 				{
 					InterfaceType = I_WATER;
 				}
 
-				if (mousex > Button_Main2.x && mousex < Button_Main2.x + Button_Main2.width
-					&& mousey > Button_Main2.y && mousey < Button_Main2.y + Button_Main2.height)
+				if (CheckButton(&Button_Main2))
 				{
 					InterfaceType = I_THROW;
 				}
 
-				if (mousex > Button_Main3.x && mousex < Button_Main3.x + Button_Main3.width
-					&& mousey > Button_Main3.y && mousey < Button_Main3.y + Button_Main3.height)
+				if (CheckButton(&Button_Main3))
 				{
 					InterfaceType = I_ORBIT;
 				}
@@ -32,16 +29,19 @@ void MouseEvents()
 				break;
 
 			case I_WATER:
-				if (mousex > Button_Back.x && mousex < Button_Back.x + Button_Back.width
-					&& mousey > Button_Back.y && mousey < Button_Back.y + Button_Back.height)
+				if (CheckButton(&Button_Back))
 				{
 					InterfaceType = I_MAIN;
+				}
+				else
+				if (CheckButton(&Button_Next))
+				{
+					InterfaceType = I_ANIM_WATER;
 				}
 				break;
 
 			case I_THROW:
-				if (mousex > Button_Back.x && mousex < Button_Back.x + Button_Back.width
-					&& mousey > Button_Back.y && mousey < Button_Back.y + Button_Back.height)
+				if (CheckButton(&Button_Back))
 				{
 					InterfaceType = I_MAIN;
 				}

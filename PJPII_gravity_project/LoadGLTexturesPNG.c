@@ -17,7 +17,7 @@ bool LoadGLTexturesPNG(GLuint *texture, char * filename)
 	{
 
 		//Convert surface to screen format
-		/*optimizedSurface = SDL_ConvertSurface(TextureImage[0], gScreenSurface->format, NULL);
+		/*optimizedSurface = SDL_ConvertSurface(TextureImage[0], gScreenSurface->format, 0);
 		if (optimizedSurface == NULL)
 		{
 			printf("Unable to optimize image %s! SDL Error: %s\n", filename, SDL_GetError());

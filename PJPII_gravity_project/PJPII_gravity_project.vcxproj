@@ -81,7 +81,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CheckButton.c" />
     <ClCompile Include="close.c" />
+    <ClCompile Include="DisplayAnimWater.c" />
     <ClCompile Include="DisplayFunc.c" />
     <ClCompile Include="DisplayMain.c" />
     <ClCompile Include="DisplayThrow.c" />
@@ -95,6 +97,8 @@
     <ClCompile Include="loadMedia.c" />
     <ClCompile Include="MouseEvents.c" />
     <ClCompile Include="Source.c" />
+    <ClCompile Include="ThrowPos.c" />
+    <ClCompile Include="WaterVelocity.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="functions.h" />

@@ -9,36 +9,48 @@
 #include <gl/GLU.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <math.h>
 
-extern GLuint count;
+#define H 0.1
+
+extern GLuint i;
 
 extern SDL_Window  * window;
 extern SDL_Surface * gScreenSurface;
 extern SDL_Surface * gCurrentSurface;
 extern SDL_Surface * gDefaultSurface;
+
+extern SDL_Surface *loadSurface(char *filename);
+
 extern GLuint  InterfaceSurface[];
 extern GLuint AdditionalTextures[];
+extern GLuint texture;
 
 extern SDL_GLContext gContext;
 
-extern GLuint texture;
-
-extern SDL_Surface *loadSurface(char *filename);
+extern double Runge[];
 
 extern int SCREEN_WIDTH;
 extern int SCREEN_HEIGHT;
 
-extern bool quit;
-extern SDL_Event ev;
 extern int InterfaceType;
-
-extern float move;
-
-extern bool pong;
 
 //Mouse Position
 extern int mousex;
 extern int mousey;
+
+extern SDL_Event ev;
+
+extern float move;
+
+extern bool quit;
+extern bool pong;
+
+extern float height1;
+extern float height2;
+extern float angle;
+
+
 
 
 enum InterfaceTypeEnum
@@ -47,6 +59,7 @@ enum InterfaceTypeEnum
 	I_WATER,
 	I_THROW,
 	I_ORBIT,
+	I_ANIM_WATER,
 	I_TOTAL
 };
 
@@ -56,6 +69,15 @@ enum AdditionalTexturesEnum
 	water,
 	back,
 	AddTotal
+};
+
+enum Runge_KuttaEnum
+{
+	K1,
+	K2,
+	K3,
+	K4,
+	K_TOTAL
 };
 
 typedef struct
@@ -71,6 +93,7 @@ extern Button_S Button_Main1;
 extern Button_S Button_Main2;
 extern Button_S Button_Main3;
 extern Button_S Button_Back;
+extern Button_S Button_Next;
 extern Button_S Button_Enter;
 
 

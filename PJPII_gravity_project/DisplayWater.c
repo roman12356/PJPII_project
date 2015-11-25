@@ -64,6 +64,10 @@ void DisplayWater()
 
 	//printf("Count: %i\n", count++);
 
+	height1 = 10;
+	height2 = 1;
+	angle = 0;
+
 
 	Events();
 

@@ -57,6 +57,18 @@
     <ClCompile Include="DisplayThrow.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CheckButton.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterVelocity.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayAnimWater.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThrowPos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">
