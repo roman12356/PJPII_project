@@ -33,9 +33,11 @@ bool invert_image(SDL_Surface* image);
 
 bool CheckButton(Button_S *);
 
+TextTexture LoadFromRenderedText(char *font, char *text, int size, SDL_Color *textColor);
+
 
 float ThrowPos(float x, float speed, float angle);
 
-float WaterVelocity(float *h1, float *h2);
+float WaterVelocity(int *h);
 
 #endif

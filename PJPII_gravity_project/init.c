@@ -14,6 +14,8 @@ bool init()
 	}
 	else
 	{
+
+		
 		//Use OpenGL 3.1 core
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
@@ -21,7 +23,7 @@ bool init()
 
 		//Create window
 
-		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1); // *new*
+		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
 		/* Enable smooth shading */
 		glShadeModel(GL_SMOOTH);
@@ -80,7 +82,12 @@ bool init()
 				{
 					printf("Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError());
 				}
-
+				else
+				if (TTF_Init() == -1)
+				{
+					printf("TTF_Init: %s\n", TTF_GetError());
+					success = false;
+				}
 			}
 
 			//Get window surface

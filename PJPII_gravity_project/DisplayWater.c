@@ -12,7 +12,18 @@ void DisplayWater()
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
+	SDL_Color textColor = { 0, 0, 0 };
 
+	//char text[5] = { 'a', 's', 'd', 'd', '\0' };
+
+	if (text[0] == '\0')
+	{
+		text[0] = ' ';
+		text[1] = '\0';
+	}
+
+
+	Data_Water = LoadFromRenderedText("fonts/arial.ttf", text, 20 , &textColor);
 
 
 	glEnable(GL_TEXTURE_2D);
@@ -53,6 +64,14 @@ void DisplayWater()
 	glTexCoord2f(1.0, 0.0); glVertex2f(750.0, 250.0);
 	glEnd();
 
+	glBindTexture(GL_TEXTURE_2D, Data_Water.Texture);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex2f(270.0, 440.0);
+	glTexCoord2f(0.0, 1.0); glVertex2f(270.0, 440.0 - Data_Water.h);
+	glTexCoord2f(1.0, 1.0); glVertex2f(270.0 + Data_Water.w, 440.0 - Data_Water.h);
+	glTexCoord2f(1.0, 0.0); glVertex2f(270.0 + Data_Water.w, 440.0);
+	glEnd();
+
 	glDisable(GL_BLEND);
 
 	glDisable(GL_TEXTURE_2D);
@@ -64,9 +83,11 @@ void DisplayWater()
 
 	//printf("Count: %i\n", count++);
 
-	height1 = 10;
-	height2 = 1;
+	//height1 = 10;
+	//height2 = 0;
 	angle = 0;
+
+	
 
 
 	Events();

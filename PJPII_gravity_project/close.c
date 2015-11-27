@@ -2,7 +2,7 @@
 
 void close()
 {
-	int i;
+//	int i;
 
 	glDeleteTextures(I_TOTAL, InterfaceSurface);
 

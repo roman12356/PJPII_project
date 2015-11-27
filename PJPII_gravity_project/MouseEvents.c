@@ -36,7 +36,18 @@ void MouseEvents()
 				else
 				if (CheckButton(&Button_Next))
 				{
+					//height1 = 
 					InterfaceType = I_ANIM_WATER;
+				}
+				if (CheckButton(&Button_Data_Water))
+				{
+					printf("dobsz\n");
+					SDL_StartTextInput();
+				}
+				else
+				{
+					SDL_StopTextInput();
+					printf("stop\n");
 				}
 				break;
 
