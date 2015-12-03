@@ -71,6 +71,7 @@ enum InterfaceTypeEnum
 	I_THROW,
 	I_ORBIT,
 	I_ANIM_WATER,
+	I_ANIM_THROW,
 	I_TOTAL
 };
 

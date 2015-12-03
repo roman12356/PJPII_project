@@ -13,6 +13,8 @@ void DisplayThrow();
 
 void DisplayAnimWater();
 
+void DisplayAnimThrow();
+
 
 void Events();
 

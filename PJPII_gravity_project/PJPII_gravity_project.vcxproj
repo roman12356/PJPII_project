@@ -83,6 +83,7 @@
   <ItemGroup>
     <ClCompile Include="CheckButton.c" />
     <ClCompile Include="close.c" />
+    <ClCompile Include="DisplayAnimThrow.c" />
     <ClCompile Include="DisplayAnimWater.c" />
     <ClCompile Include="DisplayFunc.c" />
     <ClCompile Include="DisplayMain.c" />
