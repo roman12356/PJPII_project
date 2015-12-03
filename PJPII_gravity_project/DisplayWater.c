@@ -3,7 +3,7 @@
 void DisplayWater()
 {
 
-	//glClearColor(1.0, 1.0, 1.0, 0.0);
+	glClearColor(136.0f / 255.0f, 0.0f, 21.0f / 255.0f, 1.0f);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -12,18 +12,15 @@ void DisplayWater()
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	SDL_Color textColor = { 0, 0, 0 };
 
-	//char text[5] = { 'a', 's', 'd', 'd', '\0' };
-
-	if (text[0] == '\0')
+		if (InitDataText[DTWater][0] == '\0')
 	{
-		text[0] = ' ';
-		text[1] = '\0';
+		InitDataText[DTWater][0] = ' ';
+		InitDataText[DTWater][1] = '\0';
 	}
 
 
-	Data_Water = LoadFromRenderedText("fonts/arial.ttf", text, 20 , &textColor);
+	InitDataTexture[DTWater] = LoadFromRenderedText("fonts/arial.ttf", InitDataText[DTWater], 20, &textColor);
 
 
 	glEnable(GL_TEXTURE_2D);
@@ -64,12 +61,12 @@ void DisplayWater()
 	glTexCoord2f(1.0, 0.0); glVertex2f(750.0, 250.0);
 	glEnd();
 
-	glBindTexture(GL_TEXTURE_2D, Data_Water.Texture);
+	glBindTexture(GL_TEXTURE_2D, InitDataTexture[DTWater].Texture);
 	glBegin(GL_QUADS);
 	glTexCoord2f(0.0, 0.0); glVertex2f(270.0, 440.0);
-	glTexCoord2f(0.0, 1.0); glVertex2f(270.0, 440.0 - Data_Water.h);
-	glTexCoord2f(1.0, 1.0); glVertex2f(270.0 + Data_Water.w, 440.0 - Data_Water.h);
-	glTexCoord2f(1.0, 0.0); glVertex2f(270.0 + Data_Water.w, 440.0);
+	glTexCoord2f(0.0, 1.0); glVertex2f(270.0, 440.0 - InitDataTexture[DTWater].h);
+	glTexCoord2f(1.0, 1.0); glVertex2f(270.0 + InitDataTexture[DTWater].w, 440.0 - InitDataTexture[DTWater].h);
+	glTexCoord2f(1.0, 0.0); glVertex2f(270.0 + InitDataTexture[DTWater].w, 440.0);
 	glEnd();
 
 	glDisable(GL_BLEND);
@@ -89,10 +86,17 @@ void DisplayWater()
 
 	
 
+//	SDL_PumpEvents();
+//	if (SDL_WaitEvent(&ev))
+//	{
 
-	Events();
+//		printf("Error: %s", SDL_GetError());
 
-	MouseEvents();
+		Events();
+
+		MouseEvents();
+
+//	}
 
 
 

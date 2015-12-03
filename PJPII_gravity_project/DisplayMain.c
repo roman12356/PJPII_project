@@ -52,12 +52,14 @@ void DisplayMain()
 
 	//printf("Count: %i\n", count++);
 
+	if (SDL_WaitEvent(&ev))
+	{
 
-	Events();
+		Events();
 
-	MouseEvents();
+		MouseEvents();
 
-
+	}
 
 
 

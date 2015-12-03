@@ -7,15 +7,15 @@ bool CheckButton(Button_S *button)
 		&& mousey >(*button).y && mousey < (*button).y + (*button).height)
 	{
 		success = true;
+	}
 
 		while (ev.type == SDL_MOUSEBUTTONDOWN && ev.button.button == SDL_BUTTON_LEFT)
 		{
-			printf("still\n");
+			printf("MouseClick\n");
 			ev.type = NULL;
 			ev.button.button = NULL;
 
 		}
-	}
 
 
 	return success;

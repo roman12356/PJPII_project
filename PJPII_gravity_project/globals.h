@@ -39,6 +39,7 @@ extern int SCREEN_WIDTH;
 extern int SCREEN_HEIGHT;
 
 extern int InterfaceType;
+extern int ActiveInitField;
 
 //Mouse Position
 extern int mousex;
@@ -51,11 +52,14 @@ extern float move;
 extern bool quit;
 extern bool pong;
 
-extern int height;
+extern int InitData[];
 extern float angle;
 
 extern char text[];
+extern char **InitDataText;
 extern char buffer[];
+
+extern SDL_Color textColor;
 
 
 
@@ -87,6 +91,16 @@ enum Runge_KuttaEnum
 	K_TOTAL
 };
 
+enum DataTextureEnum
+{
+	DTWater,
+	DTThrowWeight,
+	DTThrowVelocity,
+	DTThrowAngle,
+	DTTotal
+};
+
+
 typedef struct
 {
 	int x;
@@ -102,7 +116,9 @@ typedef struct
 	int h;
 }TextTexture;
 
-extern TextTexture Data_Water;
+
+
+extern TextTexture InitDataTexture[];
 
 
 extern Button_S Button_Main1;
@@ -112,6 +128,11 @@ extern Button_S Button_Back;
 extern Button_S Button_Next;
 extern Button_S Button_Enter;
 extern Button_S Button_Data_Water;
+extern Button_S Button_Data_ThrowWeight;
+extern Button_S Button_Data_ThrowVelocity;
+extern Button_S Button_Data_ThrowAngle;
+extern Button_S Button_Empty;
+
 
 
 #endif

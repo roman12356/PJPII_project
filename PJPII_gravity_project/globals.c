@@ -16,6 +16,8 @@ GLuint texture;
 GLuint  InterfaceSurface[I_TOTAL];
 GLuint AdditionalTextures[AddTotal];
 
+TextTexture InitDataTexture[DTTotal];
+
 TextTexture Data_Water;
 
 float move = 0;
@@ -53,16 +55,22 @@ int SCREEN_HEIGHT = 600;
 
 double Runge[K_TOTAL];
 
-int height = 0;
+int InitData[DTTotal];
 float angle;
 
-char text[5];
+
+char **InitDataText;
+
+
 char buffer[1];
+
+SDL_Color textColor = { 0, 0, 0 };
 	
 
 bool quit = false;
 SDL_Event ev;
 int InterfaceType = I_MAIN;
+int ActiveInitField;
 
 
 Button_S Button_Main1 = { 23, 160, 533, 70 };
@@ -71,3 +79,7 @@ Button_S Button_Main3 = { 23, 413, 515, 30 };
 Button_S Button_Back = { 100, 400, 100, 100 };
 Button_S Button_Next = { 600, 400, 100, 100 };
 Button_S Button_Data_Water = { 267, 145, 177, 41 };
+Button_S Button_Data_ThrowWeight = { 372, 101, 162, 41 };
+Button_S Button_Data_ThrowVelocity = { 372, 192, 162, 41 };
+Button_S Button_Data_ThrowAngle = { 372, 283, 162, 41 };
+Button_S Button_Empty = { 0, 0, 0, 0 };

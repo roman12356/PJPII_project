@@ -36,18 +36,18 @@ void MouseEvents()
 				else
 				if (CheckButton(&Button_Next))
 				{
-					//height1 = 
 					InterfaceType = I_ANIM_WATER;
 				}
 				if (CheckButton(&Button_Data_Water))
 				{
-					printf("dobsz\n");
+					printf("dobszWater\n");
 					SDL_StartTextInput();
+					ActiveInitField = DTWater;
 				}
 				else
 				{
 					SDL_StopTextInput();
-					printf("stop\n");
+					printf("stopText\n");
 				}
 				break;
 
@@ -55,6 +55,31 @@ void MouseEvents()
 				if (CheckButton(&Button_Back))
 				{
 					InterfaceType = I_MAIN;
+				}
+
+				else if (CheckButton(&Button_Data_ThrowWeight))
+				{
+					printf("dobszWeiht\n");
+					SDL_StartTextInput();
+					ActiveInitField = DTThrowWeight;
+				}
+				else if (CheckButton(&Button_Data_ThrowVelocity))
+				{
+					printf("dobszVelo\n");
+					SDL_StartTextInput();
+					ActiveInitField = DTThrowVelocity;
+				}
+				else if (CheckButton(&Button_Data_ThrowAngle))
+				{
+					printf("dobszAngle\n");
+					SDL_StartTextInput();
+					ActiveInitField = DTThrowAngle;
+				}
+				else
+				{
+					CheckButton(&Button_Empty);
+					SDL_StopTextInput();
+					printf("stopText\n");
 				}
 				break;
 
