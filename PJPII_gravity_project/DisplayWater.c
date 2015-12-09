@@ -3,9 +3,13 @@
 void DisplayWater()
 {
 
+	
+
 	glClearColor(136.0f / 255.0f, 0.0f, 21.0f / 255.0f, 1.0f);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	
 
 	glColor4f(1.0, 0.0, 1.0, 1.0);
 
@@ -18,6 +22,13 @@ void DisplayWater()
 		InitDataText[DTWater][0] = ' ';
 		InitDataText[DTWater][1] = '\0';
 	}
+
+		for (i = 0; i < strlen(InitDataText[DTWater]); i++)
+		{
+			//printf("\nstring: %i", InitDataText[DTWater][i]);
+		}
+
+		//getch();
 
 
 	InitDataTexture[DTWater] = LoadFromRenderedText("fonts/arial.ttf", InitDataText[DTWater], 20, &textColor);
@@ -74,7 +85,7 @@ void DisplayWater()
 	glDisable(GL_TEXTURE_2D);
 
 
-	SDL_GL_MakeCurrent(window, gContext);
+	//SDL_GL_MakeCurrent(window, gContext);
 
 	SDL_GL_SwapWindow(window);
 
@@ -94,7 +105,7 @@ void DisplayWater()
 
 		Events();
 
-		MouseEvents();
+		//MouseEvents();
 
 //	}
 

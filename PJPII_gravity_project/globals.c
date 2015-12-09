@@ -56,6 +56,9 @@ int SCREEN_HEIGHT = 600;
 double Runge[K_TOTAL];
 
 int InitData[DTTotal];
+int tempint;
+float *WaterPosition = NULL;
+GLint WaterPositionAmount;
 float angle;
 
 
@@ -65,6 +68,11 @@ char **InitDataText;
 char buffer[1];
 
 SDL_Color textColor = { 0, 0, 0 };
+
+Uint32 StartTimer;
+int FPS = 30;
+
+float WaterScale;
 	
 
 bool quit = false;

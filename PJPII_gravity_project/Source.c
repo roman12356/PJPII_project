@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Header.h"
 
 
@@ -35,14 +36,19 @@ int main(int argc, char * argv[])
 
 	}
 
+
 	//While app is running
 	while (!quit)
 	{
-			
-		Events();
-
+		StartTimer = SDL_GetTicks();
 
 		DisplayFunc();
+
+		if (1000 / FPS > SDL_GetTicks() - StartTimer)
+		{
+			SDL_Delay(1000 / FPS - (SDL_GetTicks() - StartTimer));
+		}
+
 
 	}
 

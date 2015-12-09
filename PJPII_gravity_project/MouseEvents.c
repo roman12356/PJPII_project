@@ -36,7 +36,7 @@ void MouseEvents()
 				else
 				if (CheckButton(&Button_Next))
 				{
-					InterfaceType = I_ANIM_WATER;
+					InterfaceType = I_COUNT_ANIM_WATER;
 				}
 				if (CheckButton(&Button_Data_Water))
 				{
@@ -90,7 +90,6 @@ void MouseEvents()
 
 			default:
 				printf("nie\n");
-				printf("x: %i y: %i width: %i height: %i\n", Button_Main1.x, Button_Main1.y, Button_Main1.width, Button_Main1.height);
 				CheckButton(&Button_Empty);
 				break;
 

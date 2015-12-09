@@ -16,5 +16,7 @@ void close()
 	SDL_DestroyWindow(window);
 	window = NULL;
 
+	free(WaterPosition);
+
 	SDL_Quit();
 }

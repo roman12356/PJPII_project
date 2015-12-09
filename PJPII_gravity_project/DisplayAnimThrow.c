@@ -9,7 +9,7 @@ void DisplayAnimThrow()
 
 	Events();
 
-	MouseEvents();
+	//MouseEvents();
 
 
 

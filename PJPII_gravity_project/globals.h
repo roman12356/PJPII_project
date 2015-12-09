@@ -53,6 +53,9 @@ extern bool quit;
 extern bool pong;
 
 extern int InitData[];
+extern int tempint;
+extern float *WaterPosition;
+extern GLint WaterPositionAmount;
 extern float angle;
 
 extern char text[];
@@ -60,6 +63,11 @@ extern char **InitDataText;
 extern char buffer[];
 
 extern SDL_Color textColor;
+
+extern Uint32 StartTimer;
+extern int FPS;
+
+extern float WaterScale;
 
 
 
@@ -70,6 +78,7 @@ enum InterfaceTypeEnum
 	I_WATER,
 	I_THROW,
 	I_ORBIT,
+	I_COUNT_ANIM_WATER,
 	I_ANIM_WATER,
 	I_ANIM_THROW,
 	I_TOTAL

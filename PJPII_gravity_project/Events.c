@@ -5,6 +5,9 @@ void Events()
 {
 	while (SDL_PollEvent(&ev) != 0)
 	{
+		MouseEvents();
+
+
 		switch (ev.type)
 		{
 		case SDL_QUIT:
@@ -19,7 +22,7 @@ void Events()
 
 			if (InterfaceType == I_WATER && ev.key.keysym.sym == SDLK_RETURN  && InitDataText[DTWater][1] != '\0')
 			{
-				InterfaceType = I_ANIM_WATER;
+				InterfaceType = I_COUNT_ANIM_WATER;
 			}
 
 			if (ev.key.keysym.sym == SDLK_BACKSPACE)
@@ -68,8 +71,14 @@ void Events()
 					}
 				}
 
+				if (InitDataText[DTWater][1] == 48)
+				{
+					InitDataText[DTWater][1] = '\0';
+				}
 
 				InitData[DTWater] = atoi(InitDataText[DTWater]);
+
+				
 
 				printf("%c, %i\n", buffer[0], InitData[DTWater]);
 			}

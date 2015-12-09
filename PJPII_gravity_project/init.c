@@ -7,13 +7,16 @@ bool init()
 	bool success = true;
 
 	//Initialize SDL
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0)
 	{
 		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 		success = false;
 	}
 	else
 	{
+		//Antyaliasing
+		SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 2);
+		SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 6);
 
 		
 		//Use OpenGL 3.1 core
@@ -29,7 +32,6 @@ bool init()
 		glShadeModel(GL_SMOOTH);
 
 		/* Set the background red */
-		//glClearColor(136.0f / 255.0f, 0.0f, 21.0f / 255.0f, 1.0f);
 
 		/* Depth buffer setup */
 		glClearDepth(1.0f);
@@ -41,9 +43,9 @@ bool init()
 		glDepthFunc(GL_LEQUAL);
 
 		/* Really Nice Perspective Calculations */
-		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+		//glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
-		window = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+		window = SDL_CreateWindow("Grawitacja dla gimnazjum", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 		if (window == NULL)
 		{
 			printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
@@ -100,6 +102,7 @@ bool init()
 			glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 			glOrtho(0, SCREEN_WIDTH, 0, SCREEN_HEIGHT, -2.0, 2.0);
+
 		}
 
 

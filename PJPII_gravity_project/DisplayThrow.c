@@ -105,7 +105,7 @@ void DisplayThrow()
 
 	Events();
 
-	MouseEvents();
+	//MouseEvents();
 
 
 
