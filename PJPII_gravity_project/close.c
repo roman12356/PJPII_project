@@ -17,6 +17,7 @@ void close()
 	window = NULL;
 
 	free(WaterPosition);
+//	free(RangeTexture);
 
 	SDL_Quit();
 }

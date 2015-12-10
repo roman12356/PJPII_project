@@ -11,11 +11,7 @@ TextTexture LoadFromRenderedText(char *font, char *text, int size, SDL_Color *te
 		return temp;
 	}
 
-	/*if (text[0] == '\0')
-	{
-		printf("asdasdasd\n");
-		text[0] = 'a';
-	}*/
+
 
 	SDL_Surface* TextSDL = NULL;
 	TextSDL = TTF_RenderText_Blended(tmpfont, text, *textColor);

@@ -52,11 +52,12 @@ extern float move;
 extern bool quit;
 extern bool pong;
 
-extern int InitData[];
+extern Uint32 InitData[];
 extern int tempint;
 extern float *WaterPosition;
-extern GLint WaterPositionAmount;
+extern int WaterPositionAmount;
 extern float angle;
+extern int AmountOfRange;
 
 extern char text[];
 extern char **InitDataText;
@@ -129,6 +130,7 @@ typedef struct
 
 
 extern TextTexture InitDataTexture[];
+extern TextTexture RangeTexture[];
 
 
 extern Button_S Button_Main1;

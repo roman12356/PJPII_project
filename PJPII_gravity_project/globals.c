@@ -16,9 +16,9 @@ GLuint texture;
 GLuint  InterfaceSurface[I_TOTAL];
 GLuint AdditionalTextures[AddTotal];
 
+TextTexture RangeTexture[40];
 TextTexture InitDataTexture[DTTotal];
 
-TextTexture Data_Water;
 
 float move = 0;
 bool pong = false;
@@ -55,11 +55,12 @@ int SCREEN_HEIGHT = 600;
 
 double Runge[K_TOTAL];
 
-int InitData[DTTotal];
+Uint32 InitData[DTTotal];
 int tempint;
 float *WaterPosition = NULL;
-GLint WaterPositionAmount;
+int WaterPositionAmount;
 float angle;
+int AmountOfRange;
 
 
 char **InitDataText;
