@@ -2,9 +2,11 @@
 
 void DisplayAnimWater()
 {
-
 	static float angle2;
-	static char range[4];
+
+	
+
+	
 
 
 	glClearColor(153.0f / 255.0f,
@@ -13,44 +15,127 @@ void DisplayAnimWater()
 				1.0f);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
-
-	glColor4f(185.0f / 255.0f,
-			122.0f / 255.0f,
-			87.0f / 255.0f,
-			1.0f);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-
-
-
-	if (tempint > 3500)
-	{
-		glTranslatef(350 - (int)tempint / 10, 0.0, 0.0);
-	}
-
-
-
-
-	if (tempint < WaterPositionAmount)
-	{
-		tempint += WaterVelocity(&InitData[DTWater]) * 100 / FPS;
-	}
-
-	if (tempint > WaterPositionAmount)
-	{
-		tempint = WaterPositionAmount;
-	}
-
+	//floor
+	glColor4f(185.0f / 255.0f,
+		122.0f / 255.0f,
+		87.0f / 255.0f,
+		1.0f);
 
 	glBegin(GL_QUADS);
 	glVertex2f(0.0, 0.0);
 	glVertex2f(0.0, 200.0);
-	glVertex2f(800.0 + (float)WaterPositionAmount/10, 200.0);
-	glVertex2f(800.0 + (float)WaterPositionAmount/10, 000.0);
+	glVertex2f(800.0, 200.0);
+	glVertex2f(800.0f, 0.0f);
 	glEnd();
+	//end floor
+
+
+	//additional buttons and info for events of animation
+
+	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	glBindTexture(GL_TEXTURE_2D, AdditionalTextTextures[BACK].Texture);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex2f(30.0, 50.0f);
+	glTexCoord2f(0.0, 1.0); glVertex2f(30.0, 50.0f - AdditionalTextTextures[BACK].h);
+	glTexCoord2f(1.0, 1.0); glVertex2f(30.0 + AdditionalTextTextures[BACK].w, 50.0 - AdditionalTextTextures[BACK].h);
+	glTexCoord2f(1.0, 0.0); glVertex2f(30.0 + AdditionalTextTextures[BACK].w, 50.0);
+	glEnd();
+
+
+	glBindTexture(GL_TEXTURE_2D, AdditionalTextTextures[SlowMotion].Texture);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex2f(200.0, 550.0f);
+	glTexCoord2f(0.0, 1.0); glVertex2f(200.0, 550.0f - AdditionalTextTextures[SlowMotion].h);
+	glTexCoord2f(1.0, 1.0); glVertex2f(200.0 + AdditionalTextTextures[SlowMotion].w, 550.0 - AdditionalTextTextures[SlowMotion].h);
+	glTexCoord2f(1.0, 0.0); glVertex2f(200.0 + AdditionalTextTextures[SlowMotion].w, 550.0);
+	glEnd();
+
+	glBindTexture(GL_TEXTURE_2D, AdditionalTextTextures[START].Texture);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex2f(200.0, 500.0f);
+	glTexCoord2f(0.0, 1.0); glVertex2f(200.0, 500.0f - AdditionalTextTextures[START].h);
+	glTexCoord2f(1.0, 1.0); glVertex2f(200.0 + AdditionalTextTextures[START].w, 500.0 - AdditionalTextTextures[START].h);
+	glTexCoord2f(1.0, 0.0); glVertex2f(200.0 + AdditionalTextTextures[START].w, 500.0);
+	glEnd();
+
+
+	glBindTexture(GL_TEXTURE_2D, AdditionalTextTextures[RANGE].Texture);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex2f(570.0, 550.0f);
+	glTexCoord2f(0.0, 1.0); glVertex2f(570.0, 550.0f - AdditionalTextTextures[RANGE].h);
+	glTexCoord2f(1.0, 1.0); glVertex2f(570.0 + AdditionalTextTextures[RANGE].w, 550.0 - AdditionalTextTextures[RANGE].h);
+	glTexCoord2f(1.0, 0.0); glVertex2f(570.0 + AdditionalTextTextures[RANGE].w, 550.0);
+	glEnd();
+
+		
+
+	glDisable(GL_BLEND);
+	glDisable(GL_TEXTURE_2D);
+	//end of additional buttons for events of animation
+
+
+	if (start == true)
+	{
+		if (tempint < WaterPositionAmount)
+		{
+			if (SlowMotion == SLOWMO_TRUE)
+			{
+				tempint += WaterVelocity(&InitData[DTWater]) * 100 / FPS;
+			}
+			else
+			{
+				tempint += WaterVelocity(&InitData[DTWater]) * 1000 / FPS;
+			}
+			printf("\ntempint: %f", 1 - (float)(tempint / 100000.));
+		}
+
+		if (tempint > WaterPositionAmount)
+		{
+			tempint = WaterPositionAmount;
+		}
+
+
+		if (tempint > 3500 && tempint < WaterPositionAmount)
+		{
+			glTranslatef(350 - (int)tempint / 10, 0.0, 0.0);
+		}
+	}
+
+	//scalling with +- and moving with mouse
+	if (tempint == WaterPositionAmount && tempint > 3500)
+	{
+		if (scaleflag == false)
+		{
+			xrel = (int)-tempint / 10 + 350;
+			scaleflag = true;
+		}
+
+		if (scaleflag == true)
+		{
+			if (xrel >= 200)
+			{
+				xrel = 200 - 1;
+			}
+			if ((float)xrel <= -(float)(AmountOfRange * 100.) * (float)KRscale)
+			{
+				xrel = (int)-(AmountOfRange * 100.) * KRscale + 1.;
+			}
+
+			glTranslatef((float)xrel, 0.0f, 0.0f);
+			glScalef(KRscale, KRscale, KRscale);
+		}
+		
+	}
+	//end of scalling and moving
+
+
 
 
 	
@@ -62,7 +147,7 @@ void DisplayAnimWater()
 
 
 	//chair
-	glLineWidth(10);
+	glLineWidth(10 * KRscale);
 	glBegin(GL_LINES);
 
 	//brown dark
@@ -85,7 +170,7 @@ void DisplayAnimWater()
 
 	
 	//vessel
-	glLineWidth(2);
+	glLineWidth(2 * KRscale);
 
 	//dark purple - blue
 	glColor4f(131.0f / 255.0f,
@@ -142,7 +227,7 @@ void DisplayAnimWater()
 	glEnd();
 
 
-	glLineWidth(10);
+	glLineWidth(10 * KRscale);
 
 	glBegin(GL_LINES);
 
@@ -165,7 +250,7 @@ void DisplayAnimWater()
 	//end filing the vessel
 
 
-	glLineWidth(2);
+	glLineWidth(2 * KRscale);
 
 
 
@@ -175,11 +260,15 @@ void DisplayAnimWater()
 	glVertex2f(200.0f, 300.0f);
 
 
+	if (start == true)
+	{
+
 		for (i = 0; i <= tempint - 1;
 			glVertex2f(200.0f + (i * 0.1f), 300.0f + WaterPosition[i] * 100),
 			glVertex2f(200.0f + ((i + 1) * 0.1f), 300.0f + WaterPosition[i + 1] * 100),
 			i++);
-		
+	}
+
 	glEnd();
 
 	
@@ -207,28 +296,36 @@ void DisplayAnimWater()
 
 	glEnd();
 
-	for (i = 0; i < AmountOfRange; i++)
-	{
-		itoa(i * 100, &range, 10);
-		RangeTexture[i] = LoadFromRenderedText("fonts/arial.ttf", &range, 20, &textColor);
-	}
-
 
 
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	for (i = 0; i < AmountOfRange; i++)
+	for (i = 0; i < AmountOfRange + 1; i++)
 	{
 		glBindTexture(GL_TEXTURE_2D, RangeTexture[i].Texture);
 		glBegin(GL_QUADS);
-		glTexCoord2f(0.0, 0.0); glVertex2f(290.0 + i * 100, 90.0f);
-		glTexCoord2f(0.0, 1.0); glVertex2f(290.0 + i * 100, 90.0f - RangeTexture[i].h);
-		glTexCoord2f(1.0, 1.0); glVertex2f(290.0 + i * 100 + RangeTexture[i].w, 90.0 - RangeTexture[i].h);
-		glTexCoord2f(1.0, 0.0); glVertex2f(290.0 + i * 100 + RangeTexture[i].w, 90.0);
+		glTexCoord2f(0.0, 0.0); glVertex2f(190.0 + i * 100, 90.0f);
+		glTexCoord2f(0.0, 1.0); glVertex2f(190.0 + i * 100, 90.0f - RangeTexture[i].h);
+		glTexCoord2f(1.0, 1.0); glVertex2f(190.0 + i * 100 + RangeTexture[i].w, 90.0 - RangeTexture[i].h);
+		glTexCoord2f(1.0, 0.0); glVertex2f(190.0 + i * 100 + RangeTexture[i].w, 90.0);
 		glEnd();
+
 	}
+
+	glBindTexture(GL_TEXTURE_2D, RangeTexture[i].Texture);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex2f(170.0 + i * 100, 90.0f);
+	glTexCoord2f(0.0, 1.0); glVertex2f(170.0 + i * 100, 90.0f - RangeTexture[i].h);
+	glTexCoord2f(1.0, 1.0); glVertex2f(170.0 + i * 100 + RangeTexture[i].w, 90.0 - RangeTexture[i].h);
+	glTexCoord2f(1.0, 0.0); glVertex2f(170.0 + i * 100 + RangeTexture[i].w, 90.0);
+	glEnd();
+
+
+
+
+		
 	
 	glDisable(GL_BLEND);
 

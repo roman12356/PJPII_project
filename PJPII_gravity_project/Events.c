@@ -56,6 +56,39 @@ void Events()
 					}
 				}
 			}
+
+			if (InterfaceType == I_ANIM_WATER)
+			{
+				switch (ev.key.keysym.sym)
+				{
+				case SDLK_KP_PLUS:
+					if (KRscale < 1.0f)
+					KRscale += 0.1f;
+					break;
+
+				case SDLK_EQUALS:
+					if (ev.key.keysym.mod == KMOD_LSHIFT)
+					{
+						if (KRscale < 1.0f)
+						KRscale += 0.1f;
+						printf("\nScale: %f", KRscale);
+					}
+					break;
+
+				case SDLK_KP_MINUS:
+					if (KRscale > 0.2f)
+					KRscale -= 0.1f;
+					break;
+
+				case SDLK_MINUS:
+					if (KRscale > 0.2f)
+					KRscale -= 0.1f;
+					break;
+
+				default:
+					break;
+				}
+			}
 			break;
 
 		case SDL_TEXTINPUT:

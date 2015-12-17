@@ -44,6 +44,8 @@ bool loadMedia()
 		printf("SDL ERROR: %s\n", SDL_GetError());
 		success = false;
 	}
+
+
 	
 
 

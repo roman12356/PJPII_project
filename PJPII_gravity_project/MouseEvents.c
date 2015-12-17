@@ -2,8 +2,20 @@
 
 void MouseEvents()
 {
+
+	if (ev.type == SDL_MOUSEMOTION && ev.button.button == SDL_BUTTON_LEFT && InterfaceType == I_ANIM_WATER)
+	{		
+		if ((xrel <= 200) && (xrel >= -(AmountOfRange * 100)))
+		{
+			xrel += ev.motion.xrel;
+		}
+	}
+
+
 	if (ev.type == SDL_MOUSEBUTTONDOWN && ev.button.button ==  SDL_BUTTON_LEFT)
 	{
+		
+
 		//Get Mouse Position
 		SDL_GetMouseState(&mousex, &mousey);
 		printf("x: %i y: %i\n", mousex, mousey);
@@ -85,6 +97,34 @@ void MouseEvents()
 					SDL_StopTextInput();
 					printf("stopText\n");
 				}
+				break;
+
+			case I_ANIM_WATER:
+				if (CheckButton(&Button_Powrot))
+				{
+					InterfaceType = I_MAIN;
+				}
+				else if (CheckButton(&Button_Slowmo))
+				{
+					printf("Slowmo");
+					if (SlowMotion == SLOWMO_TRUE)
+					{
+						SlowMotion = SLOWMO_FALSE;
+					}
+					else
+					{
+						SlowMotion = SLOWMO_TRUE;
+					}
+				}
+				else if (CheckButton(&Button_Start))
+				{
+					scaleflag = false;
+					xrel = 0;
+					KRscale = 1.0f;
+					tempint = 0;
+					start = true;
+				}
+
 				break;
 
 

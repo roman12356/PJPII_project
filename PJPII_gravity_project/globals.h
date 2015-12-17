@@ -33,7 +33,6 @@ extern GLuint texture;
 
 extern SDL_GLContext gContext;
 
-extern double Runge[];
 
 extern int SCREEN_WIDTH;
 extern int SCREEN_HEIGHT;
@@ -62,6 +61,7 @@ extern int AmountOfRange;
 extern char text[];
 extern char **InitDataText;
 extern char buffer[];
+extern char range[];
 
 extern SDL_Color textColor;
 
@@ -69,6 +69,13 @@ extern Uint32 StartTimer;
 extern int FPS;
 
 extern float WaterScale;
+
+extern int xrel;
+
+extern float KRscale;
+extern int SlowMotion;
+extern bool scaleflag;
+extern bool start;
 
 
 
@@ -93,14 +100,6 @@ enum AdditionalTexturesEnum
 	AddTotal
 };
 
-enum Runge_KuttaEnum
-{
-	K1,
-	K2,
-	K3,
-	K4,
-	K_TOTAL
-};
 
 enum DataTextureEnum
 {
@@ -109,6 +108,17 @@ enum DataTextureEnum
 	DTThrowVelocity,
 	DTThrowAngle,
 	DTTotal
+};
+
+
+enum AdditionalTextTexturesEnum
+{
+	BACK,
+	SLOWMO_TRUE,
+	SLOWMO_FALSE,
+	RANGE,
+	START,
+	AddTexTotal
 };
 
 
@@ -131,6 +141,7 @@ typedef struct
 
 extern TextTexture InitDataTexture[];
 extern TextTexture RangeTexture[];
+extern TextTexture AdditionalTextTextures[];
 
 
 extern Button_S Button_Main1;
@@ -144,6 +155,9 @@ extern Button_S Button_Data_ThrowWeight;
 extern Button_S Button_Data_ThrowVelocity;
 extern Button_S Button_Data_ThrowAngle;
 extern Button_S Button_Empty;
+extern Button_S Button_Powrot;
+extern Button_S Button_Slowmo;
+extern Button_S Button_Start;
 
 
 
