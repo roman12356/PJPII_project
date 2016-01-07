@@ -21,6 +21,10 @@ void DisplayFunc()
 		CountWater();
 		break;
 
+	case I_COUNT_ANIM_THROW:
+		CountThrow();
+		break;
+
 	case I_ANIM_WATER:
 		DisplayAnimWater();
 		break;

@@ -39,6 +39,12 @@ bool loadMedia()
 		success = false;
 	}
 
+	if (!(LoadGLTexturesPNG(&Ball, "png/ball3.png")))
+	{
+		printf("SDL ERROR: %s\n", SDL_GetError());
+		success = false;
+	}
+
 	if (!(LoadGLTexturesPNG(&AdditionalTextures[water], "png/glass.png")))
 	{
 		printf("SDL ERROR: %s\n", SDL_GetError());

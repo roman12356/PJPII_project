@@ -14,6 +14,7 @@ SDL_GLContext gContext;
 
 GLuint texture;
 GLuint  InterfaceSurface[I_TOTAL];
+GLuint Ball;
 GLuint AdditionalTextures[AddTotal];
 
 TextTexture RangeTexture[40];
@@ -59,6 +60,8 @@ Uint32 InitData[DTTotal];
 int tempint;
 float *WaterPosition = NULL;
 int WaterPositionAmount;
+float *ThrowPosition = NULL;
+int ThrowPositionAmount;
 float angle;
 int AmountOfRange;
 
@@ -73,6 +76,7 @@ Uint32 StartTimer;
 int FPS = 30;
 
 float WaterScale;
+float ThrowScale;
 	
 
 bool quit = false;

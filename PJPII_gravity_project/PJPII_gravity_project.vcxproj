@@ -84,6 +84,7 @@
   <ItemGroup>
     <ClCompile Include="CheckButton.c" />
     <ClCompile Include="close.c" />
+    <ClCompile Include="CountThrow.c" />
     <ClCompile Include="CountWater.c" />
     <ClCompile Include="DisplayAnimThrow.c" />
     <ClCompile Include="DisplayAnimWater.c" />

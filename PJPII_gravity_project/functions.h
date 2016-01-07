@@ -15,6 +15,10 @@ void DisplayAnimWater();
 
 void DisplayAnimThrow();
 
+void CountThrow();
+
+void CountWater();
+
 
 void Events();
 

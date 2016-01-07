@@ -3,7 +3,7 @@
 void MouseEvents()
 {
 
-	if (ev.type == SDL_MOUSEMOTION && ev.button.button == SDL_BUTTON_LEFT && InterfaceType == I_ANIM_WATER)
+	if (ev.type == SDL_MOUSEMOTION && ev.button.button == SDL_BUTTON_LEFT && (InterfaceType == I_ANIM_WATER || InterfaceType == I_ANIM_THROW))
 	{		
 		if ((xrel <= 200) && (xrel >= -(AmountOfRange * 100)))
 		{
@@ -89,7 +89,7 @@ void MouseEvents()
 				}
 				else if (CheckButton(&Button_Next))
 				{
-					InterfaceType = I_ANIM_THROW;
+					InterfaceType = I_COUNT_ANIM_THROW;
 				}
 				else
 				{
@@ -106,7 +106,34 @@ void MouseEvents()
 				}
 				else if (CheckButton(&Button_Slowmo))
 				{
-					printf("Slowmo");
+					if (SlowMotion == SLOWMO_TRUE)
+					{
+						SlowMotion = SLOWMO_FALSE;
+					}
+					else
+					{
+						SlowMotion = SLOWMO_TRUE;
+					}
+				}
+				else if (CheckButton(&Button_Start))
+				{
+					scaleflag = false;
+					xrel = 0;
+					KRscale = 1.0f;
+					tempint = 0;
+					start = true;
+				}
+
+				break;
+
+			case I_ANIM_THROW:
+
+				if (CheckButton(&Button_Powrot))
+				{
+					InterfaceType = I_MAIN;
+				}
+				else if (CheckButton(&Button_Slowmo))
+				{
 					if (SlowMotion == SLOWMO_TRUE)
 					{
 						SlowMotion = SLOWMO_FALSE;

@@ -29,6 +29,7 @@ extern SDL_Surface *loadSurface(char *filename);
 extern GLuint  InterfaceSurface[];
 extern GLuint AdditionalTextures[];
 extern GLuint texture;
+extern GLuint Ball;
 
 
 extern SDL_GLContext gContext;
@@ -54,7 +55,9 @@ extern bool pong;
 extern Uint32 InitData[];
 extern int tempint;
 extern float *WaterPosition;
+extern float *ThrowPosition;
 extern int WaterPositionAmount;
+extern int ThrowPositionAmount;
 extern float angle;
 extern int AmountOfRange;
 
@@ -69,6 +72,7 @@ extern Uint32 StartTimer;
 extern int FPS;
 
 extern float WaterScale;
+extern float ThrowScale;
 
 extern int xrel;
 
@@ -87,6 +91,7 @@ enum InterfaceTypeEnum
 	I_THROW,
 	I_ORBIT,
 	I_COUNT_ANIM_WATER,
+	I_COUNT_ANIM_THROW,
 	I_ANIM_WATER,
 	I_ANIM_THROW,
 	I_TOTAL

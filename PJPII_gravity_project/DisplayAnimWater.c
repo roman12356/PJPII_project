@@ -4,9 +4,6 @@ void DisplayAnimWater()
 {
 	static float angle2;
 
-	
-
-	
 
 
 	glClearColor(153.0f / 255.0f,
@@ -18,6 +15,7 @@ void DisplayAnimWater()
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+
 
 	//floor
 	glColor4f(185.0f / 255.0f,
@@ -93,7 +91,6 @@ void DisplayAnimWater()
 			{
 				tempint += WaterVelocity(&InitData[DTWater]) * 1000 / FPS;
 			}
-			printf("\ntempint: %f", 1 - (float)(tempint / 100000.));
 		}
 
 		if (tempint > WaterPositionAmount)

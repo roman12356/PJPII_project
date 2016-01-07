@@ -162,6 +162,7 @@ void Events()
 
 						if (buffer[0] > 47 && buffer[0] < 58)
 						{
+							//if (InitData[DTThrowAngle] == 0)
 							strcat(InitDataText[DTThrowAngle], buffer);
 						}
 					}
