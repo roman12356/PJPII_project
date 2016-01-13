@@ -23,12 +23,6 @@ void DisplayWater()
 		InitDataText[DTWater][1] = '\0';
 	}
 
-		for (i = 0; i < strlen(InitDataText[DTWater]); i++)
-		{
-			//printf("\nstring: %i", InitDataText[DTWater][i]);
-		}
-
-		//getch();
 
 
 	InitDataTexture[DTWater] = LoadFromRenderedText("fonts/arial.ttf", InitDataText[DTWater], 20, &textColor);
@@ -80,37 +74,20 @@ void DisplayWater()
 	glTexCoord2f(1.0, 0.0); glVertex2f(270.0 + InitDataTexture[DTWater].w, 440.0);
 	glEnd();
 
+	glDeleteTextures(1, &InitDataTexture[DTWater].Texture);
+
 	glDisable(GL_BLEND);
 
 	glDisable(GL_TEXTURE_2D);
 
 
-	//SDL_GL_MakeCurrent(window, gContext);
-
 	SDL_GL_SwapWindow(window);
 
-	//printf("Count: %i\n", count++);
 
-	//height1 = 10;
-	//height2 = 0;
 	angle = 0;
 
-	
 
-//	SDL_PumpEvents();
-//	if (SDL_WaitEvent(&ev))
-//	{
-
-//		printf("Error: %s", SDL_GetError());
-
-		Events();
-
-		//MouseEvents();
-
-//	}
-
-
-
+	Events();
 
 
 }

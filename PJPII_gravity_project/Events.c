@@ -34,18 +34,12 @@ void Events()
 						InitDataText[DTWater][strlen(InitDataText[DTWater]) - 1] = '\0';
 					}
 				}
-				else if (ActiveInitField == DTThrowWeight)
-				{
-					if (strlen(InitDataText[DTThrowWeight]) > 0)
-					{
-						InitDataText[DTThrowWeight][strlen(InitDataText[DTThrowWeight]) - 1] = '\0';
-					}
-				}
 				else if (ActiveInitField == DTThrowVelocity)
 				{
 					if (strlen(InitDataText[DTThrowVelocity]) > 0)
 					{
 						InitDataText[DTThrowVelocity][strlen(InitDataText[DTThrowVelocity]) - 1] = '\0';
+						InitData[DTThrowVelocity] = atoi(InitDataText[DTThrowVelocity]);
 					}
 				}
 				else if (ActiveInitField == DTThrowAngle)
@@ -53,11 +47,12 @@ void Events()
 					if (strlen(InitDataText[DTThrowAngle]) > 0)
 					{
 						InitDataText[DTThrowAngle][strlen(InitDataText[DTThrowAngle]) - 1] = '\0';
+						InitData[DTThrowAngle] = atoi(InitDataText[DTThrowAngle]);
 					}
 				}
 			}
 
-			if (InterfaceType == I_ANIM_WATER)
+			if (InterfaceType == I_ANIM_WATER || InterfaceType == I_ANIM_THROW)
 			{
 				switch (ev.key.keysym.sym)
 				{
@@ -71,7 +66,6 @@ void Events()
 					{
 						if (KRscale < 1.0f)
 						KRscale += 0.1f;
-						printf("\nScale: %f", KRscale);
 					}
 					break;
 
@@ -111,9 +105,6 @@ void Events()
 
 				InitData[DTWater] = atoi(InitDataText[DTWater]);
 
-				
-
-				printf("%c, %i\n", buffer[0], InitData[DTWater]);
 			}
 
 
@@ -121,38 +112,21 @@ void Events()
 			{
 				switch (ActiveInitField)
 				{
-				case DTThrowWeight:
-					if (strlen(InitDataText[DTThrowWeight]) < 5)
-					{
-						strncpy(buffer, ev.text.text, 1);
-
-						if (buffer[0] > 47 && buffer[0] < 58)
-						{
-							strcat(InitDataText[DTThrowWeight], buffer);
-						}
-					}
-
-
-					InitData[DTThrowWeight] = atoi(InitDataText[DTThrowWeight]);
-
-					printf("%ThrowWeight: %c, %i\n", buffer[0], InitData[DTThrowWeight]);
-					break;
 
 				case DTThrowVelocity:
-					if (strlen(InitDataText[DTThrowVelocity]) < 5)
+					if (strlen(InitDataText[DTThrowVelocity]) < 4)
 					{
 						strncpy(buffer, ev.text.text, 1);
 
 						if (buffer[0] > 47 && buffer[0] < 58)
 						{
 							strcat(InitDataText[DTThrowVelocity], buffer);
+							//strcat(InitDataText[DTThrowVelocity], "[cm]");
 						}
 					}
 
 
 					InitData[DTThrowVelocity] = atoi(InitDataText[DTThrowVelocity]);
-
-					printf("%ThrowVelocity: %c, %i\n", buffer[0], InitData[DTThrowVelocity]);
 					break;
 
 				case DTThrowAngle:
@@ -160,17 +134,23 @@ void Events()
 					{
 						strncpy(buffer, ev.text.text, 1);
 
-						if (buffer[0] > 47 && buffer[0] < 58)
+						if (InitData[DTThrowAngle] == 0 && buffer[0] > 48 && buffer[0] < 58)
 						{
 							//if (InitData[DTThrowAngle] == 0)
+							strcat(InitDataText[DTThrowAngle], buffer);
+						}
+						else if (InitData[DTThrowAngle] == 9 && buffer[0] == 48)
+						{
+							strcat(InitDataText[DTThrowAngle], buffer);
+						}
+						else if (InitData[DTThrowAngle] > 0 && InitData[DTThrowAngle] < 9 && buffer[0] > 47 && buffer[0] < 58)
+						{
 							strcat(InitDataText[DTThrowAngle], buffer);
 						}
 					}
 
 
 					InitData[DTThrowAngle] = atoi(InitDataText[DTThrowAngle]);
-
-					printf("%ThrowAngle: %c, %i\n", buffer[0], InitData[DTThrowAngle]);
 					break;
 
 

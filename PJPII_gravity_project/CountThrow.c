@@ -2,70 +2,67 @@
 
 void CountThrow()
 {
-	char range[20];
-	float ThrowRange;
-	char buff[20];
-	for (i = 0; i < 20; i++)
+	//char range[20];
+	float ThrowRange, angle;
+	char buff[50];
+	for (i = 0; i < 50; i++)
 	{
 		buff[i] = '\0';
 	}
 
-	printf("Velo: %f\nangle: %f\n", (float)InitData[DTThrowVelocity], (float)(InitData[DTThrowAngle] * (M_PI / 180)));
+	angle = (float)(InitData[DTThrowAngle] * (M_PI / 180));
 
 
 	for (i = 0;
-		ThrowPos((float)(i * 0.001), (float)InitData[DTThrowVelocity], (float)(InitData[DTThrowAngle] * (M_PI / 180))) >= 0.0;
+		ThrowY((float)i / (FPS * 5), (float)InitData[DTThrowVelocity], &angle) >= 0.0;
 		i++
 		);
+
+	if (ThrowPositionY != NULL)
+	{
+		free(ThrowPositionY);
+		ThrowPositionY = NULL;
+		free(ThrowPositionX);
+		ThrowPositionX = NULL;
+	}
 
 
 	ThrowPositionAmount = i;
 
-	if ((ThrowPosition = (float*)calloc(i, sizeof(float))) == NULL)
+	if ((ThrowPositionY = (float*)calloc(i+1, sizeof(float))) == NULL)
 	{
-		printf("\nCan't allocate memory for ThrowPosition\n");
+		printf("\nCan't allocate memory for ThrowPositionY\n");
 	}
 
-	i--;
+	if ((ThrowPositionX = (float*)calloc(i + 1, sizeof(float))) == NULL)
+	{
+		printf("\nCan't allocate memory for ThrowPositionX\n");
+	}
+
+	
 
 
-	for (;
+	for (i = ThrowPositionAmount -1;
 		i > 0;
-		ThrowPosition[i] = ThrowPos((float)(i * 0.001), (float)InitData[DTThrowVelocity], (float)(InitData[DTThrowAngle] * (M_PI / 180))),
-		printf("watPos: %f\n", ThrowPosition[i]),
-		//SDL_Delay(10),
+		ThrowPositionY[i] = ThrowY((float)i / (FPS * 5), (float)InitData[DTThrowVelocity], &angle),
 		i--);
 
-	printf("\nThrowPositionAmount: %i\ni: %i", ThrowPositionAmount, i);
-	printf("\nVelocity: %f ", (float)InitData[DTThrowVelocity]);
+	ThrowPositionY[ThrowPositionAmount] = 0.0;
+
+	for (i = ThrowPositionAmount - 1;
+		i > 0;
+		ThrowPositionX[i] = ThrowX((float)i / (FPS * 5), (float)InitData[DTThrowVelocity], &angle),
+		i--);
 
 
-	tempint = 0;
+	ThrowPositionX[ThrowPositionAmount] = ThrowX((float)ThrowPositionAmount / (FPS * 5), (float)InitData[DTThrowVelocity], &angle);
 
-	ThrowScale = 300.0f / ThrowPositionAmount;
 
-	for (i = 0; i < ThrowPositionAmount / 10 + 100; i += 100);
+	AmountOfRange = 1 + (int)ThrowPositionX[ThrowPositionAmount];
 
-	i -= 100;
-	i /= 100;
+	sprintf(buff, "Zasieg: %.03f[m]\0", ThrowPositionX[ThrowPositionAmount]);
 
-	AmountOfRange = i;
-
-	for (i = 0; i < AmountOfRange + 1; i++)
-	{
-		itoa(i * 100, &range, 10);
-		RangeTexture[i] = LoadFromRenderedText("fonts/arial.ttf", &range, 20, &textColor);
-	}
-
-	ThrowRange = ThrowPositionAmount / 1000.;
-
-	sprintf(range, "%.3f", ThrowRange);
-
-	strcat(buff, "Zasieg: ");
-	strcat(buff, range);
-	strcat(buff, " [m]");
-
-	RangeTexture[i] = LoadFromRenderedText("fonts/arial.ttf", "[cm]", 20, &textColor);
+	RangeTexture[45] = LoadFromRenderedText("fonts/arial.ttf", "[cm]", 20, &textColor);	
 
 	AdditionalTextTextures[BACK] = LoadFromRenderedText("fonts/arial.ttf", "Powrót", 35, &textColor);
 	AdditionalTextTextures[SLOWMO_TRUE] = LoadFromRenderedText("fonts/arial.ttf", "Wylacz zwolnione tempo", 25, &textColor);
@@ -74,11 +71,18 @@ void CountThrow()
 	AdditionalTextTextures[START] = LoadFromRenderedText("fonts/arial.ttf", "START", 25, &textColor);
 
 
+
 	xrel = 0;
+	yrel = 0;
 	KRscale = 1.0f;
 	SlowMotion = SLOWMO_FALSE;
 	scaleflag = false;
 	start = false;
+	tempint = 0;
+	translatex = 0;
+	translatey = 0;
+	showtime = 0;	
+	ThrowPositionYUp = false;
 
 	InterfaceType = I_ANIM_THROW;
 

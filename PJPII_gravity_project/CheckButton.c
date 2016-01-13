@@ -11,7 +11,6 @@ bool CheckButton(Button_S *button)
 
 		while (ev.type == SDL_MOUSEBUTTONDOWN && ev.button.button == SDL_BUTTON_LEFT)
 		{
-			printf("MouseClick\n");
 			ev.type = NULL;
 			ev.button.button = NULL;
 

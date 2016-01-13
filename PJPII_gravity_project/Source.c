@@ -33,7 +33,6 @@ int main(int argc, char * argv[])
 	if (!loadMedia())
 	{
 			printf("Failed to load media!\n");
-
 	}
 
 
@@ -53,6 +52,7 @@ int main(int argc, char * argv[])
 	}
 
 	close();
+
 
 	return 0;
 }

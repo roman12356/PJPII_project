@@ -44,6 +44,10 @@ TextTexture LoadFromRenderedText(char *font, char *text, int size, SDL_Color *te
 
 float ThrowPos(float x, float speed, float angle);
 
+float ThrowY(float t, float speed, float *angle);
+
+float ThrowX(float t, float speed, float *angle);
+
 float WaterVelocity(int *h);
 
 #endif

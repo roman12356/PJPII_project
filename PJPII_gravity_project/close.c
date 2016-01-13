@@ -17,6 +17,8 @@ void close()
 	window = NULL;
 
 	free(WaterPosition);
+	free(ThrowPositionY);
+	free(ThrowPositionX);
 //	free(RangeTexture);
 
 	SDL_Quit();

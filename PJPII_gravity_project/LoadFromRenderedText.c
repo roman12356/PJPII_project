@@ -49,8 +49,8 @@ TextTexture LoadFromRenderedText(char *font, char *text, int size, SDL_Color *te
 	}
 
 
-
-
+	SDL_FreeSurface(TextSDL);
+	TTF_CloseFont(tmpfont);
 
 	return temp;
 }

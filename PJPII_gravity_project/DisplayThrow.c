@@ -13,12 +13,6 @@ void DisplayThrow()
 	glLoadIdentity();
 
 
-	if (InitDataText[DTThrowWeight][0] == '\0')
-	{
-		InitDataText[DTThrowWeight][0] = ' ';
-		InitDataText[DTThrowWeight][1] = '\0';
-	}
-
 	if (InitDataText[DTThrowVelocity][0] == '\0')
 	{
 		InitDataText[DTThrowVelocity][0] = ' ';
@@ -31,7 +25,6 @@ void DisplayThrow()
 		InitDataText[DTThrowAngle][1] = '\0';
 	}
 
-	InitDataTexture[DTThrowWeight] = LoadFromRenderedText("fonts/arial.ttf", InitDataText[DTThrowWeight], 20, &textColor);
 	InitDataTexture[DTThrowVelocity] = LoadFromRenderedText("fonts/arial.ttf", InitDataText[DTThrowVelocity], 20, &textColor);
 	InitDataTexture[DTThrowAngle] = LoadFromRenderedText("fonts/arial.ttf", InitDataText[DTThrowAngle], 20, &textColor);
 
@@ -66,13 +59,6 @@ void DisplayThrow()
 	glTexCoord2f(1.0, 0.0); glVertex2f(100.0, 100.0);
 	glEnd();
 
-	glBindTexture(GL_TEXTURE_2D, InitDataTexture[DTThrowWeight].Texture);
-	glBegin(GL_QUADS);
-	glTexCoord2f(0.0, 0.0); glVertex2f(370.0, 490.0);
-	glTexCoord2f(0.0, 1.0); glVertex2f(370.0, 490.0 - InitDataTexture[DTThrowWeight].h);
-	glTexCoord2f(1.0, 1.0); glVertex2f(370.0 + InitDataTexture[DTThrowWeight].w, 490.0 - InitDataTexture[DTThrowWeight].h);
-	glTexCoord2f(1.0, 0.0); glVertex2f(370.0 + InitDataTexture[DTThrowWeight].w, 490.0);
-	glEnd();
 
 	glBindTexture(GL_TEXTURE_2D, InitDataTexture[DTThrowVelocity].Texture);
 	glBegin(GL_QUADS);
@@ -95,12 +81,15 @@ void DisplayThrow()
 
 	glDisable(GL_TEXTURE_2D);
 
+	glDeleteTextures(1, &InitDataTexture[DTThrowAngle].Texture);
+	glDeleteTextures(1, &InitDataTexture[DTThrowVelocity].Texture);
+
+
 
 	SDL_GL_MakeCurrent(window, gContext);
 
 	SDL_GL_SwapWindow(window);
 
-	//printf("Count: %i\n", count++);
 
 
 	Events();

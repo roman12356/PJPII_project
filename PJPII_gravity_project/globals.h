@@ -7,7 +7,6 @@
 #include <SDL_opengl.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
-//#include <gl/GLU.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -18,6 +17,7 @@
 #define H 0.1
 
 extern GLuint i;
+extern int k;
 
 extern SDL_Window  * window;
 extern SDL_Surface * gScreenSurface;
@@ -30,6 +30,8 @@ extern GLuint  InterfaceSurface[];
 extern GLuint AdditionalTextures[];
 extern GLuint texture;
 extern GLuint Ball;
+
+extern GLuint MyText;
 
 
 extern SDL_GLContext gContext;
@@ -55,11 +57,16 @@ extern bool pong;
 extern Uint32 InitData[];
 extern int tempint;
 extern float *WaterPosition;
-extern float *ThrowPosition;
+extern float *ThrowPositionY;
+extern float *ThrowPositionX;
 extern int WaterPositionAmount;
 extern int ThrowPositionAmount;
 extern float angle;
 extern int AmountOfRange;
+extern float RotateAngle;
+extern float VectorLenght;
+
+extern float tempangle;
 
 extern char text[];
 extern char **InitDataText;
@@ -71,15 +78,17 @@ extern SDL_Color textColor;
 extern Uint32 StartTimer;
 extern int FPS;
 
-extern float WaterScale;
-extern float ThrowScale;
-
 extern int xrel;
+extern int yrel;
+
+extern float translatex;
+extern float translatey;
 
 extern float KRscale;
 extern int SlowMotion;
 extern bool scaleflag;
 extern bool start;
+extern bool ThrowPositionYUp;
 
 
 
@@ -89,7 +98,6 @@ enum InterfaceTypeEnum
 	I_MAIN,
 	I_WATER,
 	I_THROW,
-	I_ORBIT,
 	I_COUNT_ANIM_WATER,
 	I_COUNT_ANIM_THROW,
 	I_ANIM_WATER,
@@ -109,7 +117,6 @@ enum AdditionalTexturesEnum
 enum DataTextureEnum
 {
 	DTWater,
-	DTThrowWeight,
 	DTThrowVelocity,
 	DTThrowAngle,
 	DTTotal
@@ -123,6 +130,8 @@ enum AdditionalTextTexturesEnum
 	SLOWMO_FALSE,
 	RANGE,
 	START,
+	POS_X,
+	POS_Y,
 	AddTexTotal
 };
 
@@ -138,8 +147,8 @@ typedef struct
 typedef struct
 {
 	GLuint Texture;
-	int w;
-	int h;
+	GLint w;
+	GLint h;
 }TextTexture;
 
 
@@ -149,9 +158,12 @@ extern TextTexture RangeTexture[];
 extern TextTexture AdditionalTextTextures[];
 
 
+extern GLint showtime;
+extern TextTexture showtimetexture;
+
+
 extern Button_S Button_Main1;
 extern Button_S Button_Main2;
-extern Button_S Button_Main3;
 extern Button_S Button_Back;
 extern Button_S Button_Next;
 extern Button_S Button_Enter;
@@ -162,7 +174,10 @@ extern Button_S Button_Data_ThrowAngle;
 extern Button_S Button_Empty;
 extern Button_S Button_Powrot;
 extern Button_S Button_Slowmo;
+extern Button_S Button_SlowmoThrow;
 extern Button_S Button_Start;
+extern Button_S Button_StartThrow;
+
 
 
 

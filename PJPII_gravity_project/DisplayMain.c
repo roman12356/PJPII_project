@@ -43,25 +43,13 @@ void DisplayMain()
 
 	glDisable(GL_TEXTURE_2D);
 
-	//glTranslatef(0, 0, -1.0);
-
 
 	SDL_GL_MakeCurrent(window, gContext);
 
 	SDL_GL_SwapWindow(window);
 
-	//printf("Count: %i\n", count++);
-
-	//if (SDL_WaitEvent(&ev))
-	//{
 
 		Events();
-
-		//MouseEvents();
-
-	//}
-
-
 
 
 }

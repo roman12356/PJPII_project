@@ -34,7 +34,6 @@ void DisplayFunc()
 		break;
 
 	default:
-		printf("Nothing yet\n");
 		InterfaceType = I_MAIN;
 		break;
 

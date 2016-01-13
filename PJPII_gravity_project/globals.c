@@ -2,6 +2,7 @@
 
 
 GLuint i;
+int k;
 
 SDL_Window* window = NULL;
 SDL_Surface * gScreenSurface = NULL;
@@ -17,13 +18,20 @@ GLuint  InterfaceSurface[I_TOTAL];
 GLuint Ball;
 GLuint AdditionalTextures[AddTotal];
 
-TextTexture RangeTexture[40];
+GLuint MyText;
+
+GLint showtime;
+TextTexture showtimetexture;
+
+
+TextTexture RangeTexture[46];
 TextTexture InitDataTexture[DTTotal];
 TextTexture AdditionalTextTextures[AddTexTotal];
 
 
 float move = 0;
 bool pong = false;
+bool ThrowPositionYUp = false;
 
 //Mouse Position
 int mousex;
@@ -60,15 +68,20 @@ Uint32 InitData[DTTotal];
 int tempint;
 float *WaterPosition = NULL;
 int WaterPositionAmount;
-float *ThrowPosition = NULL;
+float *ThrowPositionY = NULL;
+float *ThrowPositionX = NULL;
 int ThrowPositionAmount;
 float angle;
 int AmountOfRange;
+float RotateAngle;
+float VectorLenght;
+
+extern float tempangle = 0;
 
 
 char **InitDataText;
 char buffer[1];
-char range[4];
+char range[50];
 
 SDL_Color textColor = { 0, 0, 0 };
 
@@ -76,7 +89,6 @@ Uint32 StartTimer;
 int FPS = 30;
 
 float WaterScale;
-float ThrowScale;
 	
 
 bool quit = false;
@@ -85,6 +97,10 @@ int InterfaceType = I_MAIN;
 int ActiveInitField;
 
 int xrel;
+int yrel;
+
+float translatex;
+float translatey;
 
 float KRscale;
 int SlowMotion;
@@ -94,7 +110,6 @@ bool start;
 
 Button_S Button_Main1 = { 23, 160, 533, 70 };
 Button_S Button_Main2 = { 23, 290, 289, 30 };
-Button_S Button_Main3 = { 23, 413, 515, 30 };
 Button_S Button_Back = { 100, 400, 100, 100 };
 Button_S Button_Next = { 600, 400, 100, 100 };
 Button_S Button_Data_Water = { 267, 145, 177, 41 };
@@ -104,4 +119,6 @@ Button_S Button_Data_ThrowAngle = { 372, 283, 162, 41 };
 Button_S Button_Empty = { 0, 0, 0, 0 };
 Button_S Button_Powrot = { 32, 556, 110, 30 };
 Button_S Button_Slowmo = { 200, 51, 250, 26 };
+Button_S Button_SlowmoThrow = { 30, 26, 250, 26 };
 Button_S Button_Start = { 198, 101, 90, 27 };
+Button_S Button_StartThrow = { 28, 76, 90, 27 };

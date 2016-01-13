@@ -4,11 +4,11 @@ void MouseEvents()
 {
 
 	if (ev.type == SDL_MOUSEMOTION && ev.button.button == SDL_BUTTON_LEFT && (InterfaceType == I_ANIM_WATER || InterfaceType == I_ANIM_THROW))
-	{		
-		if ((xrel <= 200) && (xrel >= -(AmountOfRange * 100)))
-		{
-			xrel += ev.motion.xrel;
-		}
+	{
+			if ((xrel <= 200) && (xrel >= -(AmountOfRange * 100)))
+			{
+				xrel += ev.motion.xrel;
+			}
 	}
 
 
@@ -18,7 +18,6 @@ void MouseEvents()
 
 		//Get Mouse Position
 		SDL_GetMouseState(&mousex, &mousey);
-		printf("x: %i y: %i\n", mousex, mousey);
 
 		switch (InterfaceType)
 		{
@@ -33,11 +32,6 @@ void MouseEvents()
 					InterfaceType = I_THROW;
 				}
 
-				if (CheckButton(&Button_Main3))
-				{
-					InterfaceType = I_ORBIT;
-				}
-
 				break;
 
 			case I_WATER:
@@ -46,20 +40,18 @@ void MouseEvents()
 					InterfaceType = I_MAIN;
 				}
 				else
-				if (CheckButton(&Button_Next))
+				if (CheckButton(&Button_Next) && InitData[DTWater] != 0)
 				{
 					InterfaceType = I_COUNT_ANIM_WATER;
 				}
 				if (CheckButton(&Button_Data_Water))
 				{
-					printf("dobszWater\n");
 					SDL_StartTextInput();
 					ActiveInitField = DTWater;
 				}
 				else
 				{
 					SDL_StopTextInput();
-					printf("stopText\n");
 				}
 				break;
 
@@ -68,26 +60,17 @@ void MouseEvents()
 				{
 					InterfaceType = I_MAIN;
 				}
-
-				else if (CheckButton(&Button_Data_ThrowWeight))
-				{
-					printf("dobszWeiht\n");
-					SDL_StartTextInput();
-					ActiveInitField = DTThrowWeight;
-				}
 				else if (CheckButton(&Button_Data_ThrowVelocity))
 				{
-					printf("dobszVelo\n");
 					SDL_StartTextInput();
 					ActiveInitField = DTThrowVelocity;
 				}
 				else if (CheckButton(&Button_Data_ThrowAngle))
 				{
-					printf("dobszAngle\n");
 					SDL_StartTextInput();
 					ActiveInitField = DTThrowAngle;
 				}
-				else if (CheckButton(&Button_Next))
+				else if (CheckButton(&Button_Next) && InitData[DTThrowAngle] != 0 && InitData[DTThrowVelocity] != 0)
 				{
 					InterfaceType = I_COUNT_ANIM_THROW;
 				}
@@ -95,7 +78,6 @@ void MouseEvents()
 				{
 					CheckButton(&Button_Empty);
 					SDL_StopTextInput();
-					printf("stopText\n");
 				}
 				break;
 
@@ -132,7 +114,7 @@ void MouseEvents()
 				{
 					InterfaceType = I_MAIN;
 				}
-				else if (CheckButton(&Button_Slowmo))
+				else if (CheckButton(&Button_SlowmoThrow))
 				{
 					if (SlowMotion == SLOWMO_TRUE)
 					{
@@ -143,20 +125,23 @@ void MouseEvents()
 						SlowMotion = SLOWMO_TRUE;
 					}
 				}
-				else if (CheckButton(&Button_Start))
+				else if (CheckButton(&Button_StartThrow))
 				{
+					translatex = 0.0;
+					translatey = 0.0;
 					scaleflag = false;
 					xrel = 0;
-					KRscale = 1.0f;
+					yrel = 0;
+					//KRscale = 1.0f;
 					tempint = 0;
 					start = true;
+					ThrowPositionYUp = false;
 				}
 
 				break;
 
 
 			default:
-				printf("nie\n");
 				CheckButton(&Button_Empty);
 				break;
 

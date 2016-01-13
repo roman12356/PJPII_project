@@ -81,6 +81,12 @@
     <ClCompile Include="CountThrow.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Throwx.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThrowY.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">

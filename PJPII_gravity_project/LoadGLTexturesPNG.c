@@ -2,30 +2,17 @@
 
 bool LoadGLTexturesPNG(GLuint *texture, char * filename)
 {
-
+	/* Create storage space for the texture */
 	SDL_Surface* optimizedSurface = NULL;
 
 
 	/* Status indicator */
 	bool success = true;
 
-	/* Create storage space for the texture */
-	SDL_Surface *TextureImage[1];// = NULL;
 
 	/* Load The Bitmap, Check For Errors, If Bitmap's Not Found Quit */
-	if ((TextureImage[0] = IMG_Load(filename)))
+	if ((optimizedSurface = IMG_Load(filename)))
 	{
-
-		//Convert surface to screen format
-		/*optimizedSurface = SDL_ConvertSurface(TextureImage[0], gScreenSurface->format, 0);
-		if (optimizedSurface == NULL)
-		{
-			printf("Unable to optimize image %s! SDL Error: %s\n", filename, SDL_GetError());
-		}*/
-
-		optimizedSurface = TextureImage[0];
-
-		//SDL_DisplayFormatAlpha(optimizedSurface);
 
 		invert_image(optimizedSurface);
 
@@ -41,12 +28,6 @@ bool LoadGLTexturesPNG(GLuint *texture, char * filename)
 		glBindTexture(GL_TEXTURE_2D, texture[0]);
 
 		/* Generate The Texture */
-
-		
-
-		/*glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);*/
-
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, optimizedSurface->w,
 			optimizedSurface->h, 0, GL_RGBA,
 			GL_UNSIGNED_BYTE, optimizedSurface->pixels);
@@ -67,10 +48,9 @@ bool LoadGLTexturesPNG(GLuint *texture, char * filename)
 	if (optimizedSurface)
 	{
 		SDL_FreeSurface(optimizedSurface);
-
-		//Get rid of old loaded surface
-		//SDL_FreeSurface(TextureImage[0]);
 	}
+
+
 
 	return success;
 
