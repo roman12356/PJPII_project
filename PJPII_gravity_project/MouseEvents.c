@@ -16,7 +16,7 @@ void MouseEvents()
 	{
 		
 
-		//Get Mouse Position
+		//Get Mouse Positiona
 		SDL_GetMouseState(&mousex, &mousey);
 
 		switch (InterfaceType)

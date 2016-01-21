@@ -2,14 +2,8 @@
 
 void close()
 {
-//	int i;
 
 	glDeleteTextures(I_TOTAL, InterfaceSurface);
-
-/*	for (i = 0; i < I_TOTAL; i++)
-	{
-		InterfaceSurface[i] = NULL;
-	}*/
 
 
 
@@ -19,7 +13,12 @@ void close()
 	free(WaterPosition);
 	free(ThrowPositionY);
 	free(ThrowPositionX);
-//	free(RangeTexture);
+
+	for (i = 0; i < DTTotal; i++)
+	{
+		free(InitDataText[i]);
+	}
+	free(InitDataText);
 
 	SDL_Quit();
 }

@@ -94,10 +94,5 @@ void DisplayThrow()
 
 	Events();
 
-	//MouseEvents();
-
-
-
-
 
 }

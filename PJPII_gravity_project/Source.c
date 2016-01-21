@@ -7,15 +7,7 @@ int main(int argc, char * argv[])
 {
 	int j;
 
-	InitDataText = (char**)malloc(sizeof(char*)*DTTotal);
-	for (i = 0; i < DTTotal; i++)
-		InitDataText[i] = (char*)malloc(sizeof(char)* 5);
 
-	for (i = 0; i < DTTotal; i++)
-	{
-		for (j = 0; j < 5; j++)
-			InitDataText[i][j] = 0;
-	}
 
 	InitData[DTWater] = 0;
 

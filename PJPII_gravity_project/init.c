@@ -42,8 +42,6 @@ bool init()
 		/* The Type Of Depth Test To Do */
 		glDepthFunc(GL_LEQUAL);
 
-		/* Really Nice Perspective Calculations */
-		//glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
 		window = SDL_CreateWindow("Grawitacja dla gimnazjum", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 		if (window == NULL)
@@ -107,6 +105,18 @@ bool init()
 
 
 
+	}
+
+	InitDataText = (char**)malloc(sizeof(char*)*DTTotal);
+	for (i = 0; i < DTTotal; i++)
+		InitDataText[i] = (char*)malloc(sizeof(char)* 5);
+
+	int j;
+
+	for (i = 0; i < DTTotal; i++)
+	{
+		for (j = 0; j < 5; j++)
+			InitDataText[i][j] = 0;
 	}
 
 	return success;

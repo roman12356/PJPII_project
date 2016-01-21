@@ -58,25 +58,25 @@ void Events()
 				{
 				case SDLK_KP_PLUS:
 					if (KRscale < 1.0f)
-					KRscale += 0.1f;
+						KRscale += 0.1f;
 					break;
 
 				case SDLK_EQUALS:
 					if (ev.key.keysym.mod == KMOD_LSHIFT)
 					{
 						if (KRscale < 1.0f)
-						KRscale += 0.1f;
+							KRscale += 0.1f;
 					}
 					break;
 
 				case SDLK_KP_MINUS:
 					if (KRscale > 0.2f)
-					KRscale -= 0.1f;
+						KRscale -= 0.1f;
 					break;
 
 				case SDLK_MINUS:
 					if (KRscale > 0.2f)
-					KRscale -= 0.1f;
+						KRscale -= 0.1f;
 					break;
 
 				default:
@@ -121,7 +121,6 @@ void Events()
 						if (buffer[0] > 47 && buffer[0] < 58)
 						{
 							strcat(InitDataText[DTThrowVelocity], buffer);
-							//strcat(InitDataText[DTThrowVelocity], "[cm]");
 						}
 					}
 
@@ -136,7 +135,6 @@ void Events()
 
 						if (InitData[DTThrowAngle] == 0 && buffer[0] > 48 && buffer[0] < 58)
 						{
-							//if (InitData[DTThrowAngle] == 0)
 							strcat(InitDataText[DTThrowAngle], buffer);
 						}
 						else if (InitData[DTThrowAngle] == 9 && buffer[0] == 48)
@@ -158,18 +156,12 @@ void Events()
 				default:
 					break;
 				}
-				
+
 			}
 
 		default:
 			break;
 		}
-
-
-		}
-
-		
-				
-
-
 	}
+
+}

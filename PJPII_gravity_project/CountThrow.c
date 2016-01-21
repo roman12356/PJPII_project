@@ -2,7 +2,6 @@
 
 void CountThrow()
 {
-	//char range[20];
 	float ThrowRange, angle;
 	char buff[50];
 	for (i = 0; i < 50; i++)

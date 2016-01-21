@@ -2,7 +2,6 @@
 
 void CountWater()
 {
-	//char range[20];
 	char buff[20];
 	for (i = 0; i < 20; i++)
 	{

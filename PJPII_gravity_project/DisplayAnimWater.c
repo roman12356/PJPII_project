@@ -260,7 +260,7 @@ void DisplayAnimWater()
 	if (start == true)
 	{
 
-		for (i = 0; i <= tempint - 1;
+		for (i = 0; i <= tempint - 2;
 			glVertex2f(200.0f + (i * 0.1f), 300.0f + WaterPosition[i] * 100),
 			glVertex2f(200.0f + ((i + 1) * 0.1f), 300.0f + WaterPosition[i + 1] * 100),
 			i++);
